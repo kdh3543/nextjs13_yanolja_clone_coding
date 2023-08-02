@@ -22,9 +22,19 @@ const Top = styled.div`
 
 const Icon = styled.div`
   display: flex;
-
-  & > img {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  & > div {
     width: 25%;
+    margin: 20px 0px;
+    text-align: center;
+    & > img {
+      width: 40px;
+    }
+    & > p {
+      font-size: 12px;
+      font-weight: bold;
+    }
   }
 `
 
@@ -44,11 +54,12 @@ function Home() {
           {ICON_LIST.map((item) => (
             <div key={item.id}>
               <img src={item.img} />
+              <p>{item.title}</p>
             </div>
           ))}
         </Icon>
-        <Slide></Slide>
-        <Menu></Menu>
+        <Slide>여긴 슬라이드</Slide>
+        <Menu>여긴 메뉴</Menu>
       </Top>
       <Box>container</Box>
       <Box>container</Box>
