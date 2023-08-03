@@ -1,7 +1,7 @@
 'use client'
 import { MY_IMAGE } from '@/generated/images'
 import styled from 'styled-components'
-import { ICON_LIST } from './_fragments/home.data'
+import { EVENT_ICON_LIST, MAIN_ICON_LIST } from './_fragments/home.data'
 
 const Container = styled.div`
   margin: auto;
@@ -28,12 +28,18 @@ const Icon = styled.div`
     width: 25%;
     margin: 20px 0px;
     text-align: center;
-    & > img {
-      width: 40px;
-    }
-    & > p {
-      font-size: 12px;
-      font-weight: bold;
+    & > div {
+      width: 50%;
+      margin: auto;
+      cursor: pointer;
+
+      & > img {
+        width: 40px;
+      }
+      & > p {
+        font-size: 11px;
+        font-weight: bold;
+      }
     }
   }
 `
@@ -44,6 +50,26 @@ const Slide = styled.div`
 
 const Menu = styled.div`
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  & > div {
+    width: 25%;
+    margin: 20px 0px;
+    text-align: center;
+    & > div {
+      width: 50%;
+      margin: auto;
+      cursor: pointer;
+
+      & > img {
+        width: 40px;
+      }
+      & > p {
+        font-size: 11px;
+        font-weight: bold;
+      }
+    }
+  }
 `
 
 function Home() {
@@ -51,15 +77,26 @@ function Home() {
     <Container>
       <Top>
         <Icon>
-          {ICON_LIST.map((item) => (
+          {MAIN_ICON_LIST.map((item) => (
             <div key={item.id}>
-              <img src={item.img} />
-              <p>{item.title}</p>
+              <div>
+                <img src={item.img} />
+                <p>{item.title}</p>
+              </div>
             </div>
           ))}
         </Icon>
         <Slide>여긴 슬라이드</Slide>
-        <Menu>여긴 메뉴</Menu>
+        <Menu>
+          {EVENT_ICON_LIST.map((item) => (
+            <div key={item.id}>
+              <div>
+                <img src={item.img} />
+                <p>{item.title}</p>
+              </div>
+            </div>
+          ))}
+        </Menu>
       </Top>
       <Box>container</Box>
       <Box>container</Box>
