@@ -12,5 +12,6 @@ export const MY_IMAGE = {
     COMPENSATION: '/images/home_img/compensation.png',
     PAYBACK: '/images/home_img/payback.png',
     BENEFIT: '/images/home_img/benefit.png',
+    SIGNUP_COUPON: '/images/home_img/signup_coupon.png',
   },
 }

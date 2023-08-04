@@ -72,6 +72,30 @@ const Menu = styled.div`
   }
 `
 
+const Middle = styled.div`
+  margin: 10px 0px;
+  width: 100%;
+  border: 1px solid blue;
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  & > img {
+    width: 15%;
+  }
+  & > span {
+    width: 10%;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  & > div {
+    width: 75%;
+    & > nth-child(1) {
+      font-size: 10px;
+    }
+  }
+`
 function Home() {
   return (
     <Container>
@@ -98,6 +122,14 @@ function Home() {
           ))}
         </Menu>
       </Top>
+      <Middle>
+        <img src={MY_IMAGE.HOME_IMG.SIGNUP_COUPON} alt="" />
+        <div>
+          <p>야놀자가 처음이신가요?</p>
+          <p>회원가입 후 혜택을 받아보세요!</p>
+        </div>
+        <span>{'>'}</span>
+      </Middle>
       <Box>container</Box>
       <Box>container</Box>
       <Box>container</Box>
