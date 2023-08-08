@@ -81,18 +81,23 @@ const Middle = styled.div`
   display: flex;
   background-color: white;
   align-items: center;
-  & > img {
+  &>div: nth-child(1) {
     width: 15%;
+    text-align: center;
+    & > img {
+      width: 50px;
+    }
   }
   & > span {
     width: 10%;
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
   }
-  & > div {
+  &>div: nth-child(2) {
     width: 75%;
-    & > nth-child(1) {
-      font-size: 10px;
+    &>p: nth-child(1) {
+      font-size: 13px;
     }
   }
 `
@@ -123,16 +128,15 @@ function Home() {
         </Menu>
       </Top>
       <Middle>
-        <img src={MY_IMAGE.HOME_IMG.SIGNUP_COUPON} alt="" />
+        <div>
+          <img src={MY_IMAGE.HOME_IMG.SIGNUP_COUPON} alt="" />
+        </div>
         <div>
           <p>야놀자가 처음이신가요?</p>
           <p>회원가입 후 혜택을 받아보세요!</p>
         </div>
         <span>{'>'}</span>
       </Middle>
-      <Box>container</Box>
-      <Box>container</Box>
-      <Box>container</Box>
       <Box>container</Box>
       <Box>container</Box>
       <Box>container</Box>
