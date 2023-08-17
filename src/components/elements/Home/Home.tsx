@@ -2,6 +2,7 @@
 import { MY_IMAGE } from '@/generated/images'
 import styled from 'styled-components'
 import { EVENT_ICON_LIST, MAIN_ICON_LIST } from './_fragments/home.data'
+import HomeSlide from '@/components/common/Slide/HomeSlide'
 
 const Container = styled.div`
   margin: auto;
@@ -116,6 +117,7 @@ function Home() {
           ))}
         </Icon>
         <Slide>여긴 슬라이드</Slide>
+        <HomeSlide />
         <Menu>
           {EVENT_ICON_LIST.map((item) => (
             <div key={item.id}>

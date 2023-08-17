@@ -3,8 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import StyledComponentsRegistry from '@/lib/registry'
 import { styled } from 'styled-components'
-import Header from '@/components/Layout/Header/Header'
-import Layout from '@/components/Layout'
+import Layout from '@/components/common/Layout/Layout'
 
 const inter = Inter({ subsets: ['latin'] })
 

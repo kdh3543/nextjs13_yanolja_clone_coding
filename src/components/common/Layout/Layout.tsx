@@ -1,8 +1,8 @@
 'use client'
 
 import { styled } from 'styled-components'
-import Header from './Layout/Header/Header'
-import Footer from './Layout/Footer/Footer'
+import Header from '../Layout/Header/Header'
+import Footer from '../Layout/Footer/Footer'
 
 const Main = styled.main`
   width: 100%;
