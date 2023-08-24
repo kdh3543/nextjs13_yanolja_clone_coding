@@ -3,6 +3,7 @@ import { MY_IMAGE } from '@/generated/images'
 import styled from 'styled-components'
 import { EVENT_ICON_LIST, MAIN_ICON_LIST } from './_fragments/home.data'
 import HomeSlide from '@/components/common/Slide/HomeSlide'
+import ThisLocateLodging from './_fragments/ThisLocateLodging'
 
 const Container = styled.div`
   margin: auto;
@@ -139,7 +140,7 @@ function Home() {
         </div>
         <span>{'>'}</span>
       </Middle>
-      <Box>container</Box>
+      <ThisLocateLodging />
       <Box>container</Box>
       <Box>container</Box>
     </Container>

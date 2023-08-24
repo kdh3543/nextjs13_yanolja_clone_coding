@@ -11,13 +11,13 @@ export const MAIN_ICON_LIST = [
   { id: 8, img: MY_IMAGE.HOME_IMG.ABROAD, title: '해외숙소' },
 ]
 
-export const MAIN_SLIDE_LIST = Array.from(
-  { length: MY_IMAGE.HOME_IMG.SLIDE_LIST.length },
-  (item, index) => ({
-    id: index,
-    img: item,
-  })
-)
+// export const MAIN_SLIDE_LIST = Array.from(
+//   { length: MY_IMAGE.HOME_IMG.SLIDE_LIST.length },
+//   (...MY_IMAGE.HOME_IMG.SLIDE_LIST, index) => ({
+//     id: index,
+//     img: MY_IMAGE.HOME_IMG.,
+//   })
+// )
 
 export const EVENT_ICON_LIST = [
   {
