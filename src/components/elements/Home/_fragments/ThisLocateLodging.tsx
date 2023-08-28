@@ -1,4 +1,6 @@
+import { MY_IMAGE } from '@/generated/images'
 import styled from 'styled-components'
+import { useEffect } from 'react'
 
 const MainBox = styled.div`
   margin: auto;
@@ -56,12 +58,18 @@ const Items = styled.span`
 `
 const ImgLists = styled.div`
   display: flex;
+  margin-top: 10px;
 `
 const Img = styled.img`
   width: 100px;
   height: 100px;
+  border: 1px solid black;
+  border-radius: 1.5rem;
 `
 function ThisLocateLodging() {
+  useEffect(() => {
+    console.log(MY_IMAGE.HOME_IMG.THIS_LOCATED)
+  }, [])
   return (
     <MainBox>
       <Header>
@@ -73,11 +81,9 @@ function ThisLocateLodging() {
       </Header>
       <Content>
         <Categories>
-          <Items>추천 주말 여행</Items>
-          <Items>전주 호텔</Items>
-          <Items>전주 펜션</Items>
-          <Items>마감 임박 호텔</Items>
-          <Items>풀빌라 숙소</Items>
+          {MY_IMAGE.HOME_IMG.THIS_LOCATED.map((val) => (
+            <Items key={val.ID}>{val.TITLE}</Items>
+          ))}
         </Categories>
         <ImgLists>
           <Img></Img>
