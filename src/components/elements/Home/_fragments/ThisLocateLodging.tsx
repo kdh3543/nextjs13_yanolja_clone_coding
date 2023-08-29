@@ -1,11 +1,10 @@
 import { MY_IMAGE } from '@/generated/images'
 import styled from 'styled-components'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const MainBox = styled.div`
   margin: auto;
   width: 100%;
-  height: 300px;
   border: 1px solid blue;
   background-color: white;
   & > * {
@@ -41,6 +40,7 @@ const Header = styled.div`
 
 const Content = styled.div`
   margin-top: 10px;
+  margin-bottom: 10px;
 `
 
 const Categories = styled.div`
@@ -59,6 +59,14 @@ const Items = styled.span`
 const ImgLists = styled.div`
   display: flex;
   margin-top: 10px;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid black;
+  flex-wrap: wrap;
+  & > div {
+    width: 45%;
+  }
 `
 const Img = styled.img`
   width: 100px;
@@ -66,9 +74,21 @@ const Img = styled.img`
   border: 1px solid black;
   border-radius: 1.5rem;
 `
+
+type hotelListType = {
+  id?: number
+  image?: string
+  like?: string
+  price?: string
+  sale?: string
+  title?: string
+}
+
 function ThisLocateLodging() {
+  const [hotelList, setHotelList] = useState<hotelListType[]>([])
   useEffect(() => {
-    console.log(MY_IMAGE.HOME_IMG.THIS_LOCATED)
+    const newData = MY_IMAGE.HOME_IMG.THIS_LOCATED[0].END_CLOSED
+    if (newData) setHotelList(newData)
   }, [])
   return (
     <MainBox>
@@ -86,7 +106,11 @@ function ThisLocateLodging() {
           ))}
         </Categories>
         <ImgLists>
-          <Img></Img>
+          {hotelList.map((val) => (
+            <div key={val.id}>
+              <Img src={val.image}></Img>
+            </div>
+          ))}
         </ImgLists>
       </Content>
     </MainBox>
