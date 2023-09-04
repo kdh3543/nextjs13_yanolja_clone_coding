@@ -7,7 +7,13 @@ import ThisLocateLodging from './_fragments/ThisLocateLodging'
 
 const Container = styled.div`
   margin: auto;
-  width: 80%;
+  width: 50%;
+  @media screen and (max-width: 1124px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 const Box = styled.div`
@@ -77,7 +83,6 @@ const Menu = styled.div`
 const Middle = styled.div`
   margin: 10px 0px;
   width: 100%;
-  border: 1px solid blue;
   border-radius: 4px;
   padding: 10px;
   display: flex;

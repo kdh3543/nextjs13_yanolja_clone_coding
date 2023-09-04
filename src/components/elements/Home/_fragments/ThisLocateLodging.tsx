@@ -2,10 +2,13 @@ import { MY_IMAGE } from '@/generated/images'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
 
+export interface StarType {
+  width: number
+}
+
 const MainBox = styled.div`
   margin: auto;
   width: 100%;
-  border: 1px solid blue;
   background-color: white;
   & > * {
     width: 95%;
@@ -19,6 +22,9 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  div {
+    margin-top: 30px;
+  }
   h3 {
     font-size: 18px;
   }
@@ -61,18 +67,77 @@ const ImgLists = styled.div`
   margin-top: 10px;
   justify-content: space-between;
   width: 100%;
-  padding: 5px;
-  border: 1px solid black;
+  padding-bottom: 50px;
   flex-wrap: wrap;
-  & > div {
-    width: 45%;
+`
+
+const HotelWrapper = styled.div`
+  width: 45%;
+  display: flex;
+  margin-top: 5px;
+  cursor: pointer;
+
+  &>div: nth-child(2) {
+    font-size: 13px;
+    padding: 5px;
+    & > span:last-child {
+      font-size: 15px;
+      @media screen and (max-width: 767px) {
+        font-size: 18px;
+      }
+    }
+  }
+  // @media screen and (max-width: 1024px) {
+  //   width: %;
+  // }
+  @media screen and (max-width: 767px) {
+    width: 100%;
   }
 `
+
+const HotelRank = styled.span`
+  position: absolute;
+  z-index: 3;
+  color: white;
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 12px;
+`
+
+const StarWrapper = styled.div`
+  color: #aaa9a9;
+  position: relative;
+  unicode-bidi: bidi-override;
+  width: max-content;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: gold;
+`
+const Star = styled.div<StarType>`
+  color: #fff58c;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: ${(props) => props.width}%;
+  -webkit-text-fill-color: gold;
+`
+const EmptyStar = styled.div`
+  z-index: 0;
+  padding: 0;
+`
+
 const Img = styled.img`
   width: 100px;
   height: 100px;
-  border: 1px solid black;
-  border-radius: 1.5rem;
+  border-radius: 5px;
+  position: relative;
 `
 
 type hotelListType = {
@@ -106,10 +171,46 @@ function ThisLocateLodging() {
           ))}
         </Categories>
         <ImgLists>
-          {hotelList.map((val) => (
-            <div key={val.id}>
-              <Img src={val.image}></Img>
-            </div>
+          {hotelList.map((val, idx) => (
+            <HotelWrapper key={val.id}>
+              <div>
+                <HotelRank>{idx + 1}</HotelRank>
+                <Img src={val.image}></Img>
+              </div>
+              <div style={{ position: 'relative', width: '80%' }}>
+                <span>{val.title}</span>
+                <div style={{ display: 'flex' }}>
+                  <StarWrapper>
+                    <Star width={Number(val.like) * 20}>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                    </Star>
+                    <EmptyStar>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                    </EmptyStar>
+                  </StarWrapper>
+                  <span style={{ marginLeft: '3px' }}>{val.like}</span>
+                </div>
+                <span
+                  style={{
+                    position: 'absolute',
+                    bottom: '0px',
+                    right: '0px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  {val.price}
+                </span>
+                {/* <Star>★★★★★</Star> */}
+              </div>
+            </HotelWrapper>
           ))}
         </ImgLists>
       </Content>
