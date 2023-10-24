@@ -1,9 +1,9 @@
-import { MY_IMAGE } from '@/generated/images'
-import styled from 'styled-components'
-import { useEffect, useState } from 'react'
+import { MY_IMAGE } from '@/generated/images';
+import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 
 export interface StarType {
-  width: number
+  width: number;
 }
 
 const MainBox = styled.div`
@@ -14,7 +14,7 @@ const MainBox = styled.div`
     width: 95%;
     margin: auto;
   }
-`
+`;
 
 const Header = styled.div`
   height: 20%;
@@ -42,16 +42,16 @@ const Header = styled.div`
   button:hover {
     background-color: #0152cc10;
   }
-`
+`;
 
 const Content = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
-`
+`;
 
 const Categories = styled.div`
   display: flex;
-`
+`;
 const Items = styled.span`
   padding: 5px 10px;
   border: 1px solid #e6e6e6;
@@ -61,7 +61,7 @@ const Items = styled.span`
   font-weight: 400;
   cursor: pointer;
   color: #616161;
-`
+`;
 const ImgLists = styled.div`
   display: flex;
   margin-top: 10px;
@@ -69,7 +69,7 @@ const ImgLists = styled.div`
   width: 100%;
   padding-bottom: 50px;
   flex-wrap: wrap;
-`
+`;
 
 const HotelWrapper = styled.div`
   width: 45%;
@@ -93,11 +93,11 @@ const HotelWrapper = styled.div`
   @media screen and (max-width: 767px) {
     width: 100%;
   }
-`
+`;
 
 const HotelRank = styled.span`
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   color: white;
   background-color: black;
   width: 20px;
@@ -105,7 +105,7 @@ const HotelRank = styled.span`
   text-align: center;
   border-radius: 5px;
   font-size: 12px;
-`
+`;
 
 const StarWrapper = styled.div`
   color: #aaa9a9;
@@ -115,7 +115,7 @@ const StarWrapper = styled.div`
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: gold;
-`
+`;
 const Star = styled.div<StarType>`
   color: #fff58c;
   padding: 0;
@@ -127,34 +127,34 @@ const Star = styled.div<StarType>`
   overflow: hidden;
   width: ${(props) => props.width}%;
   -webkit-text-fill-color: gold;
-`
+`;
 const EmptyStar = styled.div`
   z-index: 0;
   padding: 0;
-`
+`;
 
 const Img = styled.img`
   width: 100px;
   height: 100px;
   border-radius: 5px;
   position: relative;
-`
+`;
 
 type hotelListType = {
-  id?: number
-  image?: string
-  like?: string
-  price?: string
-  sale?: string
-  title?: string
-}
+  id?: number;
+  image?: string;
+  like?: string;
+  price?: string;
+  sale?: string;
+  title?: string;
+};
 
 function ThisLocateLodging() {
-  const [hotelList, setHotelList] = useState<hotelListType[]>([])
+  const [hotelList, setHotelList] = useState<hotelListType[]>([]);
   useEffect(() => {
-    const newData = MY_IMAGE.HOME_IMG.THIS_LOCATED[0].END_CLOSED
-    if (newData) setHotelList(newData)
-  }, [])
+    const newData = MY_IMAGE.HOME_IMG.THIS_LOCATED[0].END_CLOSED;
+    if (newData) setHotelList(newData);
+  }, []);
   return (
     <MainBox>
       <Header>
@@ -215,7 +215,7 @@ function ThisLocateLodging() {
         </ImgLists>
       </Content>
     </MainBox>
-  )
+  );
 }
 
-export default ThisLocateLodging
+export default ThisLocateLodging;

@@ -178,5 +178,7 @@ export const MY_IMAGE = {
         ],
       },
     ],
+    NAVBAR: '/images/home_img/navbar.png',
+    CART: '/images/home_img/cart.svg',
   },
-}
+};
